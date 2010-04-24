@@ -54,6 +54,10 @@
 		<delete dir="${build.dir}/edu" />
 	</target>
 	
+	<target name="undeploy" description="Delete the application folder in tomcat">
+		<delete dir="${deploy.path}/${name}" />
+	</target>
+	
 	<target name="export" depends="build" description="Export application to folder">
 		<copy todir="${name}" preservelastmodified="true">
 			<fileset dir="${web.dir}">
