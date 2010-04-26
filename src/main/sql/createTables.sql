@@ -6,7 +6,7 @@ CREATE TABLE AccountUser (
 );
 
 CREATE TABLE TourOperator (
-	operator_ID NUMBER PRIMARY KEY references AccountUser(user_ID) ON DELETE CASCADE,
+	operator_ID NUMBER PRIMARY KEY references AccountUser(user_ID),
 	operator_Name VARCHAR2(256),
 	company_Info VARCHAR2(256),
 	membership_Expired DATE,	
@@ -25,8 +25,8 @@ CREATE TABLE Tour (
 
 CREATE TABLE ListedTour (
 	list_ID NUMBER PRIMARY KEY,
-	operator_ID NUMBER references TourOperator(operator_ID) ON DELETE CASCADE,
-	tour_ID NUMBER references Tour(tour_ID) ON DELETE CASCADE,
+	operator_ID NUMBER references TourOperator(operator_ID),
+	tour_ID NUMBER references Tour(tour_ID),
 	listed_From DATE,
 	listed_To DATE
 );
@@ -37,8 +37,8 @@ CREATE TABLE Activity (
 );
 
 CREATE TABLE TourActivity (
-	activity_ID NUMBER references Activity(activity_ID) ON DELETE CASCADE, 
-	tour_ID NUMBER references Tour(tour_ID) ON DELETE CASCADE,
+	activity_ID NUMBER references Activity(activity_ID),
+	tour_ID NUMBER references Tour(tour_ID),
 	PRIMARY KEY (activity_ID, tour_ID)
 );
 
@@ -50,14 +50,14 @@ CREATE TABLE Location (
 );
 
 CREATE TABLE TourLocation (
-	location_ID NUMBER references Location(location_ID) ON DELETE CASCADE,
-	tour_ID NUMBER references Tour(tour_ID) ON DELETE CASCADE,
+	location_ID NUMBER references Location(location_ID),
+	tour_ID NUMBER references Tour(tour_ID),
 	PRIMARY KEY (location_ID, tour_ID)
 );
 
 CREATE TABLE TourDate(
 	date_ID NUMBER PRIMARY KEY,
-	tour_ID NUMBER references Tour(tour_ID) ON DELETE CASCADE,
+	tour_ID NUMBER references Tour(tour_ID),
 	start_Date DATE,
 	finish_Date DATE
 );
@@ -65,7 +65,7 @@ CREATE TABLE TourDate(
 CREATE TABLE Image (
 	image_ID NUMBER PRIMARY KEY,
 	image_URL VARCHAR2(256),
-	tour_ID NUMBER references Tour(tour_ID) ON DELETE CASCADE
+	tour_ID NUMBER references Tour(tour_ID)
 );
 
 CREATE TABLE MonthlyFee (

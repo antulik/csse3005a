@@ -170,7 +170,7 @@ INSERT INTO TourActivity VALUES (
 -- Location -----------------------------------------------------------------------
 
 INSERT INTO Location VALUES (
-	0001, 'Brisbane', -10425.01545, 2035.0135
+	0001, 'Sydney', -10425.01545, 2035.0135
 );
 
 INSERT INTO Location VALUES (
@@ -178,11 +178,11 @@ INSERT INTO Location VALUES (
 );
 
 INSERT INTO Location VALUES (
-	0003, 'Brisbane', 10234522.0000123333355, 205435435.03342342
+	0003, 'NewYork', 10234522.0000123333355, 205435435.03342342
 );
 
 INSERT INTO Location VALUES (
-	0004, 'Brisbane', 10890444.04890403890, 202342342.04432423423
+	0004, 'Perth', 10890444.04890403890, 202342342.04432423423
 );
 
 -- TourLocation -----------------------------------------------------------------------

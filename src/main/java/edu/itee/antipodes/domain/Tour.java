@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+@SuppressWarnings("serial")
 public class Tour implements Serializable {
 	
 	private int tourID; 
@@ -12,9 +13,18 @@ public class Tour implements Serializable {
 	private double price;
 	private int totalDays;
 	private int onDemand;
+	private Set<Activity> activities = new HashSet<Activity>(0);
+	private Set<Location> locations = new HashSet<Location>(0);
 	
 	//default constructor, instances are initiated by Constructor.newInstance()
 	public Tour(){}
+	
+	public Tour(String tourName, String tourDesc, float price, int totalDays){
+		this.tourName = tourName;
+		this.tourDesc = tourDesc;
+		this.price = price;
+		this.totalDays = totalDays;
+	}		
 	
 	public int getTourID() {
 		return tourID;
@@ -63,7 +73,23 @@ public class Tour implements Serializable {
 	public void setOnDemand(int onDemand) {
 		this.onDemand = onDemand;
 	}
-
+	
+	public Set<Activity> getActivities() {
+		return activities;
+	}
+	
+	public void setActivities(Set<Activity> activities) {
+		this.activities = activities;
+	}
+	
+	public Set<Location> getLocations() {
+		return locations;
+	}
+	
+	public void setLocations(Set<Location> locations) {
+		this.locations = locations;
+	}
+	
 	@Override
 	public String toString() {
 		return "Tour [price=" + price + ", totalDays=" + totalDays
